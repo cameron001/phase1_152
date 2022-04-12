@@ -7,7 +7,7 @@
 
    /* some common rules */
 
-   DIGIT [0-9]
+   DIGIT [0-9];
 
 %%
    /* specific lexer rules in regex */
@@ -24,6 +24,17 @@
    "enum"                  {printf("ENUM\n"); currPos += yyleng;} 
    "of"                    {printf("OF\n"); currPos += yyleng;}
    "if"                    {printf("IF\n"); currPos += yyleng;}
+
+
+
+   "=="                    {printf("EQ\n"); currPos += yyleng;}
+   "<>"                    {printf("NEQ\n"); currPos += yyleng;}
+   "<"                    {printf("LT\n"); currPos += yyleng;}
+   ">"                    {printf("GT\n"); currPos += yyleng;}
+   "<="                    {printf("LTE\n"); currPos += yyleng;}
+   ">="                    {printf("GTE\n"); currPos += yyleng;}
+   
+
    
 
 
