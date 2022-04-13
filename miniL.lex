@@ -32,11 +32,11 @@
    "return"                {printf("RETURN\n"); currPos += yyleng;}
 
    /* ARITHMETIC */
-   "-"            {printf("SUB\n"); currPos += yyleng;}
-   "+"            {printf("ADD\n"); currPos += yyleng;}
-   "*"            {printf("MULT\n"); currPos += yyleng;}
-   "/"            {printf("DIV\n"); currPos += yyleng;}
-   "%"            {printf("MOD\n"); currPos += yyleng;}
+   "-"                     {printf("SUB\n"); currPos += yyleng;}
+   "+"                     {printf("ADD\n"); currPos += yyleng;}
+   "*"                     {printf("MULT\n"); currPos += yyleng;}
+   "/"                     {printf("DIV\n"); currPos += yyleng;}
+   "%"                     {printf("MOD\n"); currPos += yyleng;}
 
    
 %%
