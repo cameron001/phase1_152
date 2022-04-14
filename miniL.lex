@@ -69,7 +69,11 @@ DIGIT [0-9]
 (\.{DIGIT}+)|({DIGIT}+(\.{DIGIT}*)?([eE][+-]?[0-9]+)?)   {printf("NUMBER %s\n", yytext); currPos += yyleng;}
 
 [a-zA-Z0-9_]*[a-zA-Z0-9]* {printf("IDENT %s\n", yytext); currPos += yyleng;}
-   
+
+[ \t]+         {/* ignore spaces */ currPos += yyleng;}
+
+"\n"           {currLine++; currPos = 1;}
+
 %%
 
 int main(int argc, char ** argv)
