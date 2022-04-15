@@ -67,7 +67,9 @@ DIGIT [0-9]
 ":="                     {printf("ASSIGN\n"); currPos += yyleng;}
 
 
+
 [##].* {currLine++; currPos = 1;}
+
 
 
 
@@ -82,7 +84,7 @@ DIGIT [0-9]
 
 "\n"           {currLine++; currPos = 1;}
 
-
+.              {printf("Error at line %d, column %d: unrecognized symbol \"%s\"\n", currLine, currPos, yytext); exit(0);}
 %%
 
 int main(int argc, char ** argv)
