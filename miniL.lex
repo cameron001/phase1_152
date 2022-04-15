@@ -66,13 +66,22 @@ DIGIT [0-9]
 "]"                     {printf("R_SQUARE_BRACKET\n"); currPos += yyleng;}
 ":="                     {printf("ASSIGN\n"); currPos += yyleng;}
 
+
+[##].* {currLine++; currPos = 1;}
+
+
+
 (\.{DIGIT}+)|({DIGIT}+(\.{DIGIT}*)?([eE][+-]?[0-9]+)?)   {printf("NUMBER %s\n", yytext); currPos += yyleng;}
+
+[0-9_][a-zA-Z0-9_]*[a-zA-Z0-9_]   {printf("Error at line %d, column %d: identifier \"%s\" must begin with a letter\n", currLine, currPos, yytext); exit(0);}
+[a-zA-Z0-9_]*[_]   {printf("Error at line %d, column %d: identifier \"%s\" cannot end with an underscore\n", currLine, currPos, yytext); exit(0);}
 
 [a-zA-Z0-9_]*[a-zA-Z0-9]* {printf("IDENT %s\n", yytext); currPos += yyleng;}
 
 [ \t]+         {/* ignore spaces */ currPos += yyleng;}
 
 "\n"           {currLine++; currPos = 1;}
+
 
 %%
 
