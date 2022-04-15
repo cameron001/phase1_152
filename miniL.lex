@@ -1,7 +1,7 @@
    /* cs152-miniL phase1 */
    
 %{   
-   int currLine = 1, currPos = 1;
+   int currLine = 1, currPos = 0;
 
 %}
 
@@ -82,7 +82,7 @@ DIGIT [0-9]
 
 [ \t]+         {/* ignore spaces */ currPos += yyleng;}
 
-"\n"           {currLine++; currPos = 1;}
+"\n"           {currLine++; currPos = 0;}
 
 .              {printf("Error at line %d, column %d: unrecognized symbol \"%s\"\n", currLine, currPos, yytext); exit(0);}
 %%
