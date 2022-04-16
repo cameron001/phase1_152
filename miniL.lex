@@ -68,7 +68,7 @@ DIGIT [0-9]
 
 
 
-[##].* {currLine++; currPos = 1;}
+[##].* {currPos = 0;}
 
 
 
